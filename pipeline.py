@@ -196,7 +196,7 @@ class WgetArgs(object):
         
         assert item_type in ('cobook')
         
-        if item_type == 'app':
+        if item_type == 'cobook':
             wget_args.append('https://cobook.co/{0}'.format(item_value))
             wget_args.append('https://cobook.co/{0}.vcf'.format(item_value))
         else:
@@ -233,7 +233,7 @@ pipeline = Pipeline(
     WgetDownload(
         WgetArgs(),
         max_tries=2,
-        accept_on_exit_code=[0, 4, 6, 8],
+        accept_on_exit_code=[0, 8],
         env={
             "item_dir": ItemValue("item_dir"),
             "item_value": ItemValue("item_value"),
