@@ -57,7 +57,7 @@ wget.callbacks.get_urls = function(file, url, is_css, iri)
   if item_type == "cobook" then
     if string.match(url, "https?://cobook%.co/"..item_value) then
       html = read_file(file)
-      for newurl in string.gmatch(html, "(https?://[^"]+)") do
+      for newurl in string.gmatch(html, '(https?://[^"]+)"') do
         if string.match(newurl, "%.amazonaws%.com/img%.cobook%.co") or (string.match(newurl, "/"..item_value) and string.match(newurl, "cobook%.co")) then
           check(newurl)
         end
