@@ -9,6 +9,12 @@ local item_value = os.getenv('item_value')
 local downloaded = {}
 local addedtolist = {}
 
+--ignore urls:
+downloaded["https://cobook.co/static/styles/cobook.css?v=15a05b5b71d981cd51eb4ea10a59c348"] = true
+downloaded["https://cobook.co/static/styles/mobile.css?v=771b34c9912699690f8e675db01d867d"] = true
+downloaded["https://cobook.co/static/images/favicon.png?v=dd4be2076393ff77d6294149f09f1ffb"] = true
+downloaded["https://cobook.co/static/images/nav/icon.svg?v=e227ed5bbdf7fa0ffbcd15e3cd0b69ce"] = true
+
 read_file = function(file)
   if file then
     local f = assert(io.open(file))
